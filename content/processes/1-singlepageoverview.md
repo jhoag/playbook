@@ -29,7 +29,7 @@ TODO
 
 > **_Requirements_:** Document your initial understanding of the requirements in a simple list or table.
 
-# Functional Requirements 
+## Functional Requirements 
 * Students must be able to upload their source code for execution and grading.
 * Grades and runs must be persistent and audit-able.
 * Plagiarism detection must be performed by comparing other submissions and submitting to TurnItIn.
@@ -37,8 +37,11 @@ TODO
 * Professor must be able to set due date and time, after which submissions are rejected
 * students can submit as many attempts as they want to improve their grade
 * professors determine grading criteria, which may include metrics and/or tests
+
+## Non Functional Requirements
 * Must support 300+ users.
 
+## Out of Scope
 # 10,000ft Overview
 
 > **_10,000 Ft Overview_:** Create a 10,000 ft overview of what the feature provides and where it fits into the landscape. _This does not have to be "correct"_.  If the feature is a replacement or modification of an existing feature, include the "as is" and the "to be".  Regardless of notation, consider the C4 model - and remain at C1.
