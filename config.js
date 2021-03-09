@@ -6,6 +6,7 @@ const config = {
     trailingSlash: false,
   },
   header: {
+    logo: '',
     title: "Architecture and Design Playbook",
     githubUrl: 'https://github.com/jhoag/playbook',
     helpUrl: '',
