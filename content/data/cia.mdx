@@ -1,0 +1,60 @@
+---
+title: "CIA"
+metaTitle: "Data Security"
+metaDescription: "Data Security"
+---
+
+# What is CIA?
+The CIA Triad (borrowed from various security certifications) is an acronym which serves as a reminder of three important aspects to consider when designing and evaluating an approach to securing, processing, and storing data.  It revolves around three core attributes:
+<ul>
+    <li><strong>C</strong>onfidentiality - What measures are in place to mitigate against unauthorized access? What is the impact of unauthorized access?</li>
+    <li><strong>I</strong>ntegrity - How do we insure the information is accurate? What measures are in place to mitigate against accidental or malicious modification of data?  What is the impact of sharing incorrect data?</li>
+    <li><strong>A</strong>vailability - How do we insure the data is available? What is the impact if data is unavailable often, or for a long period of time?  What about the impact of losing historical data?</li>
+</ul>
+
+In most circumstances, a low / medium / high rating with some narration is enough detail to begin with, enhancing when special requirements are identified.
+
+# Why is it useful?
+These three core attributes are a good starting place when communicating the data security position of the system under design.  They also provide a good communication tool when discussing potential trade offs - especially in combination with other aspects of the system design.
+
+Although all three aspects are important, most systems, when challenged, will have different weightings for each.  It is useful to have these in mind for more than just security.
+
+# Example
+<table>
+    <tbody>
+        <tr>
+            <th>System Description</th>
+            <td>
+                Call center software which records incoming and outgoing customer calls, including personal details and account information.  The data is primarily used for reporting purposes.
+            </td>
+        </tr>
+        <tr>
+            <th>Confidentiality</th>
+            <td>              
+                The system will monitor and store customer's personal details.  Especially in the world of GDPR, the impact of exposing data to unauthorised parties is <strong>high</strong>, with a chance of severe reputational and financial damage.  The system will need to take measures to ensure:
+                <ul>
+                    <li>The data collection pipeline is secure, and data is not available to internal or external parties who should not have access.</li>
+                    <li>Strong encryption standards are used throughout the system, both at flight and at rest.</li>
+                    <li>Infrastructure (physical and virtual) used to operate the system is suitably secure to guard against unauthorised access.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>Integrity</th>
+            <td>
+                The data is being used to perform reporting.  In the modern world, this is likely to be part of a Mission/Business Intelligence pipeline.  Depending who you ask, integrity will be of utmost importance (and sometimes this may be true).  However, in reality, the impact of incorrect data is likely to be some misleading reports.  The importance of this will vary depending on the data, but in this case, is likely a <strong>low</strong>.  With only the most basic security considerations (especially given the Confidentiality rating) the difficulty of maliciously or accidentally corrupting the data is likely to outweigh the impact and no special considerations are required to fulfil this requirement.
+            </td>
+        </tr>
+        <tr>
+            <th>Availability</th>
+            <td>
+                Assuming that data is not used for realtime reporting, the impact of having data inaccessible for a short to medium period for time is likely <em>low</em>.  However, the power in reporting data is being able to build up a picture over time.  Therefore, large chunks of missing data (another form of Availability) will have a significant impact to the ability to perform effective Business Intelligence activities.  Overall, the impact is likely to be <strong>medium</strong>.  The system will need to take measures to ensure:
+                <ul>
+                    <li>A resilient write pipeline.  For example, this may be a good opportunity to use an asynchronous pattern.</li>
+                    <li>Effective back up and restore processes are in place.</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
